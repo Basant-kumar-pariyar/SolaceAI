@@ -1,9 +1,9 @@
-+-QW
+import dotenv from "dotenv";
+import app from "./app.js";
 
-1
+dotenv.config();
+const PORT = process.env.PORT|| 5000;
 
-
-
-
-G
-G
+app.listen(PORT,()=>{
+    console.log(`SolaceAI Server running on port ${PORT}`);
+});
