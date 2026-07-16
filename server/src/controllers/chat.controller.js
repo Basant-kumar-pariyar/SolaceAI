@@ -29,3 +29,26 @@ export const sendMessage = async (req, res) => {
 
     }
 };
+export const getChatHistory = async (req, res) => {
+    try {
+
+        const chats = await Chat.find({
+            userId: req.user.userId,
+        }).sort({
+            createdAt: 1,
+        });
+
+        res.status(200).json({
+            success: true,
+            chats,
+        });
+
+    } catch (error) {
+
+        res.status(500).json({
+            success: false,
+            message: error.message,
+        });
+
+    }
+};
