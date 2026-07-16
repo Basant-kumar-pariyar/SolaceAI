@@ -1,11 +1,16 @@
 import express from "express";
+import cors from "cors";
 import authRoutes from "./routes/auth.routes.js";
 import chatRoutes from "./routes/chat.routes.js";
 import moodRoutes from "./routes/mood.routes.js";
 import journalRoutes from "./routes/journal.routes.js";
 import dashboardRoutes from "./routes/dashboard.routes.js";
 const app= express();
-
+// cors
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+}));
 
 // Middleware
 app.use(express.json());
